@@ -473,9 +473,6 @@ form input[type=radio] {
 }
 
 .loader {
-  position: absolute;
-  bottom: 30px;
-  right: 110px;
   border: 2px solid #f3f3f3;
   border-top: 2px solid #3498db;
   border-radius: 50%;

@@ -57,12 +57,14 @@
       <input type="checkbox" name="mono" id="mono" />
       <label for="mono">شبكة منتظمة 1:1</label>
     </div>
-    <button type="submit" onclick="create(this.form, false)" tabindex="3" disabled>إنشاء</button>
-    <button type="submit" onclick="create(this.form, true)" id="restore" tabindex="4" hidden>استعادة</button>
-    <div class="loader" onclick="location.reload()"></div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button type="submit" onclick="create(this.form, false)" tabindex="3" disabled>إنشاء</button>
+      <button type="submit" onclick="create(this.form, true)" id="restore" tabindex="4" hidden>استعادة</button>
+      <span class="loader" onclick="location.reload()"></span>
+    </div>
     <div class="row" id="copy">
       <div>برمجة وتطوير <u onclick="open('https://t.me/AbdSattout/')">Abd Sattout</u> &copy; 2023</div>
-      <div>v2.0-stable</div>
+      <div>v2.1-stable</div>
     </div>
   </form>
 
@@ -169,6 +171,10 @@
         './'
       )
     }
+    addEventListener("beforeinstallprompt", e => {
+      e.preventDefault(); 
+      e.prompt();
+    });
   </script>
 </body>
 
