@@ -35,7 +35,8 @@
   "dir": "rtl",
   "shortcuts": [{
     "name": "استكمال العمل",
-    "url": "/#restore"
+    "url": "/#restore",
+    "icon": "/icons/icon_x96.png"
     }],
   "categories": ["drawing", "paint", "arabic"],
   "prefer_related_applications": false,
