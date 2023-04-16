@@ -23,8 +23,9 @@ class Kufi {
 
     this.name = restore ? localStorage.getItem('kq_name') : name.replace(/\s\s+/g, ' ').trim()
     this.mono = restore ? localStorage.getItem('kq_mono') === 'true' : mono
-
+    this.size = restore ? localStorage.getItem('kq_size') : 3200
     if (restore) this.svg.innerHTML = localStorage.getItem('kq_data')
+    this.svg.style.setProperty('--size', this.size + 'px')
     document.title += ` - ${this.name}`
     $('#container').style.display = 'block'
     $('#create').style.display = 'none'
@@ -243,6 +244,7 @@ class Kufi {
     let pos = [$('#container').scrollTop * 1000 / this.svg.clientHeight, $('#container').scrollLeft * 1000 / this.svg.clientWidth]
     let size = this.svg.clientWidth + 400 * dir
     if (size <= 4000 && size >= 800) {
+      this.size = size
       this.svg.style.setProperty('--size', size + 'px')
       $('#container').scrollTo({
         top: pos[0] * this.svg.clientHeight / 1000,
@@ -404,6 +406,7 @@ class Kufi {
   save() {
     localStorage.setItem('kq_name', this.name)
     localStorage.setItem('kq_mono', this.mono)
+    localStorage.setItem('kq_size', this.size)
     localStorage.setItem('kq_data', this.svg.innerHTML)
     this.info('تم الحفظ في ذاكرة التطبيق')
     return true
