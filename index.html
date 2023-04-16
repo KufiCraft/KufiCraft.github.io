@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css?v=2.2">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scaleable=no" />
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -14,7 +14,7 @@
   <meta name="apple-mobile-web-app-title" content="KufiCraft">
   <meta name="application-name" content="KufiCraft">
   <meta name="msapplication-TileColor" content="#3498db">
-  <meta name="theme-color" content="#3498db">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="أطلق العنان لإبداعك وصمم أجمل لوحات الكوفي المربع باستخدام تطبيق الويب KufiCraft مع العديد من الأدوات دون الحاجة للتثبيت. ابدأ الآن!">
   <meta name="keywords" content="KufiCraft, Square Kufic, الكوفي المربع, الخط العربي, رسام, Abd Sattout">
   <meta og:title="KufiCraft: خطاط الكوفي المربع">
@@ -28,7 +28,7 @@
     <header id="header">
       <div>
         <div>
-          <img src="logo.png" alt="KufiCraft logo" width="100px">
+          <img src="logo.svg" alt="KufiCraft logo">
         </div>
         <div id="info">💡 يمكنك تغيير اللون من شريط الأدوات. استخدم الأزرار جانبًا لتغيير الحجم ←</div>
       </div>
@@ -42,38 +42,41 @@
   </div>
 
   <form class="form" id="create" onsubmit="return false">
-    <h1>KufiCraft - الكوفي المربع</h1>
+    <h1><img src="logo.svg" alt="KufiCraft logo" width="200px"></h1>
     <h2>ضع عنوانًا لـ لوحتك!</h2>
     <div class="row">
-      <input type="text" name="name" id="name" value="كوفي " tabindex="1" />
+      <input type="text" name="name" id="name" value="لوحة " />
       <label for="name">اسم العمل</label>
     </div>
     <script>
       document.querySelector('#name').value +=
-        (new Date()).toLocaleDateString('ar-sy')
+        (new Date()).toLocaleDateString('ar-sa', options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
     </script>
     <div class="row">
-      <label for="mono"></label>
       <input type="checkbox" name="mono" id="mono" />
-      <label for="mono">شبكة منتظمة 1:1</label>
+      <label for="mono">شبكة متساوية 1:1</label>
     </div>
-    <div style="display:flex;gap:10px;align-items:center">
-      <button type="submit" onclick="create(this.form, false)" tabindex="3" disabled>إنشاء</button>
-      <button type="submit" onclick="create(this.form, true)" id="restore" tabindex="4" hidden>استعادة</button>
+    <div style="display:flex;gap:10px;align-items:center;flex-direction: row-reverse">
+      <button type="submit" onclick="create(this.form, false)" disabled>إنشاء</button>
+      <button type="submit" onclick="create(true)" id="restore" hidden>استعادة</button>
       <span class="loader" onclick="location.reload()"></span>
-    </div>
-    <div class="row" id="copy">
-      <div>برمجة وتطوير <u onclick="open('https://t.me/AbdSattout/')">Abd Sattout</u> &copy; 2023</div>
-      <div>v2.2-stable</div>
+      <div id="copy">
+        برمجة وتطوير <a href="https://t.me/AbdSattout/" target="blank">Abd Sattout</a> &copy; 2023
+      </div>
     </div>
   </form>
 
   <div id="popup">
     <form class="form" onsubmit="return false">
       <h1>نوع التصدير</h1>
+      <br>
       <div class="row">
         <input type="radio" name="export" id="svg" checked>
         <label for="svg">SVG</label>
+      </div>
+      <div class="row">
+        <input type="radio" name="export" id="png">
+        <label for="png">PNG</label>
       </div>
       <div class="row">
         <input type="radio" name="export" id="pdf">
@@ -87,7 +90,7 @@
     <label class="item" onclick="board.setTool('pen')" title="القلم (p)">
       <input class="button" type="radio" name="tool" id="pen" checked>
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#303060" viewBox="0 0 16 16">
           <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
         </svg>
       </div>
@@ -95,7 +98,7 @@
     <label class="item" onclick="board.setTool('eraser')" ondblclick="confirm('هل تريد إعادة ضبط اللوحة؟\nسيؤدي هذا إلى مسح جميع المربعات') && board.empty()" title="الممحاة (e)">
       <input class="button" type="radio" name="tool" id="eraser">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#303060" viewBox="0 0 16 16">
           <path xmlns="http://www.w3.org/2000/svg" d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z" />
         </svg>
       </div>
@@ -103,7 +106,7 @@
     <label class="item" onclick="board.setTool('line')" title="خط مستقيم (l)">
       <input class="button" type="radio" name="tool" id="line">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#303060">
           <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
         </svg>
       </div>
@@ -111,7 +114,7 @@
     <label class="item" onclick="board.setTool('arch')" title="قنطرة علوية (c)">
       <input class="button" type="radio" name="tool" id="arch">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-rainbow" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#303060" class="bi bi-rainbow" viewBox="0 0 16 16">
           <path d="M8 4.5a7 7 0 0 0-7 7 .5.5 0 0 1-1 0 8 8 0 1 1 16 0 .5.5 0 0 1-1 0 7 7 0 0 0-7-7zm0 2a5 5 0 0 0-5 5 .5.5 0 0 1-1 0 6 6 0 1 1 12 0 .5.5 0 0 1-1 0 5 5 0 0 0-5-5zm0 2a3 3 0 0 0-3 3 .5.5 0 0 1-1 0 4 4 0 1 1 8 0 .5.5 0 0 1-1 0 3 3 0 0 0-3-3zm0 2a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 4 0 .5.5 0 0 1-1 0 1 1 0 0 0-1-1z" />
         </svg>
       </div>
@@ -119,15 +122,15 @@
     <label class="item" onclick="board.setTool('arch2')" title="قنطرة سفلية">
       <input class="button" type="radio" name="tool" id="arch2">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-rainbow" viewBox="0 0 16 16" style="transform: rotate(180deg);">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#303060" class="bi bi-rainbow" viewBox="0 0 16 16" style="transform: rotate(180deg);">
           <path d="M8 4.5a7 7 0 0 0-7 7 .5.5 0 0 1-1 0 8 8 0 1 1 16 0 .5.5 0 0 1-1 0 7 7 0 0 0-7-7zm0 2a5 5 0 0 0-5 5 .5.5 0 0 1-1 0 6 6 0 1 1 12 0 .5.5 0 0 1-1 0 5 5 0 0 0-5-5zm0 2a3 3 0 0 0-3 3 .5.5 0 0 1-1 0 4 4 0 1 1 8 0 .5.5 0 0 1-1 0 3 3 0 0 0-3-3zm0 2a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 4 0 .5.5 0 0 1-1 0 1 1 0 0 0-1-1z" />
         </svg>
       </div>
     </label>
-    <label class="item" onclick="board.setTool('hand')" title="أداة اليد (h)">
+    <label class="item" onclick="board.setTool('hand')" title="أداة اليد (h)" ondblclick="board.snap()">
       <input class="button" type="radio" name="tool" id="hand">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#303060" viewBox="0 0 16 16">
           <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z" />
         </svg>
       </div>
@@ -135,7 +138,7 @@
     <hr>
     <label class="item" onclick="board.save()" title="حفظ في التطبيق">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#303060" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M7.646 5.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2z" />
           <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
         </svg>
@@ -143,7 +146,7 @@
     </label>
     <label class="item" onclick="board.undo()" title="تراجع (ctrl+z)">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#303060" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
           <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
         </svg>
@@ -151,7 +154,7 @@
     </label>
     <label class="item" onclick="board.popup(true)" title="تصدير (ctrl+s)">
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#303060" viewBox="0 0 16 16">
           <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
           <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
         </svg>
@@ -163,17 +166,16 @@
     </label>
   </nav>
 
-  <script src="kufi.js?v=2.2"></script>
+  <script src="kufi.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register(
         'sw.js',
-        './'
+        '/'
       )
     }
     addEventListener("beforeinstallprompt", e => {
-      e.preventDefault(); 
-      e.prompt();
+      window.installer = e
     });
   </script>
 </body>

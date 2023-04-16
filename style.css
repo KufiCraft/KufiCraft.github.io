@@ -63,9 +63,17 @@ body {
   pointer-events: none;
 }
 
+#header img {
+  width: 120px;
+  padding: 3px;
+  background: #ffffffee
+}
+
 #info {
   font-size: 12px;
   font-weight: small;
+  background: #ffffffee;
+  width: 100%;
 }
 
 #zoom {
@@ -202,7 +210,7 @@ hr {
 }
 
 .item input:checked~div {
-  background: #2af;
+  background: #ccf;
 }
 
 .form {
@@ -213,18 +221,15 @@ hr {
 }
 
 .form h1 {
-  padding-bottom: 10px;
-  margin-bottom: 25px;
-  font-weight: 100;
+  margin: 30px;
   text-align: center;
-  color: #0288d1;
-  border-bottom: 1px solid #ccc;
+  color: #303060;
 }
 
 .form h2 {
   margin-bottom: 15px;
   font-weight: 400;
-  color: #444;
+  color: #901818;
 }
 
 .form small {
@@ -238,8 +243,7 @@ hr {
   overflow: hidden;
 }
 
-.form input[type=text],
-.form input[type=number] {
+.form input[type=text] {
   width: 100%;
   height: 40px;
   padding: 10px 90px 10px 10px;
@@ -249,8 +253,7 @@ hr {
   transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
 }
 
-.form input[type=text]+label,
-.form input[type=number]+label {
+.form input[type=text]+label {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -265,19 +268,17 @@ hr {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: white;
-  background: #0288d1;
+  background: #303060;
   border-radius: 0 3px 3px 0;
   transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
   transform: translateZ(0) translateX(0);
 }
 
-.form input[type=text]:focus,
-.form input[type=number]:focus {
+.form input[type=text]:focus {
   padding-right: 10px;
 }
 
-.form input[type=text]:focus+label,
-.form input[type=number]:focus+label {
+.form input[type=text]:focus+label {
   transform: translateZ(0) translateX(100%);
 }
 
@@ -323,7 +324,7 @@ form input[type=radio] {
 }
 
 .form input[type=radio]:checked+label {
-  background: #0288D1;
+  background: #303060;
 }
 
 .form input[type=radio]:checked+label:before {
@@ -338,6 +339,7 @@ form input[type=radio] {
   line-height: 30px;
   white-space: nowrap;
   background: #ccc;
+  color: #901818;
   width: 60px;
   height: 30px;
   border-radius: 100px;
@@ -353,7 +355,7 @@ form input[type=radio] {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #0288d1;
+  background: #303060;
   border-radius: 100px;
   transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.1s;
   transform: translateZ(0) scale(0);
@@ -375,7 +377,7 @@ form input[type=radio] {
 }
 
 .form input[type=checkbox]:checked+label {
-  background: #0288d1;
+  background: #303060;
 }
 
 .form input[type=checkbox]:checked+label:after {
@@ -398,7 +400,7 @@ form input[type=radio] {
   letter-spacing: 0.05em;
   color: white;
   border: none;
-  background: #0288d1;
+  background: #303060;
   border-radius: 3px;
   transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
   transform: translateZ(0) translateX(0);
@@ -408,7 +410,7 @@ form input[type=radio] {
 .form button#restore {
   width: auto;
   background: transparent;
-  color: #0288d1;
+  color: #303060;
 }
 
 .form button#restore:hover,
@@ -424,7 +426,7 @@ form input[type=radio] {
   right: 0;
   left: 0;
   bottom: 0;
-  background: #01579b;
+  background: #191932;
   height: 100%;
   width: 0;
   border-radius: 3px;
@@ -491,13 +493,17 @@ form input[type=radio] {
   }
 }
 
-
 #copy {
-  display: flex;
-  margin-top: 50px;
-  flex-direction: row;
-  justify-content: space-between;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 300;
   color: #4f4f4f;
+  flex: 1;
+}
+
+a,
+a:hover,
+a:visited,
+a:active,
+a:focus {
+  color: inherit
 }

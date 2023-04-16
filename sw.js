@@ -1,32 +1,44 @@
-// COPYRIGHT github.com/rgab1508/PixelCraft/blob/master/sw.js
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-const cacheName = "files";
+const CACHE = "kufi";
 
-addEventListener("fetch", fetchEvent => {
-  const request = fetchEvent.request;
-  if (request.method !== "GET") {
-    return;
+const offlineFallbackPage = "/";
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
   }
-  fetchEvent.respondWith(
-    (async function() {
-      const responseFromFetch = fetch(request);
-      fetchEvent.waitUntil(
-        (async function() {
-          const responseCopy = (await responseFromFetch).clone();
-          const myCache = await caches.open(cacheName);
-          await myCache.put(request, responseCopy);
-        })()
-      );
-      if (request.headers.get("Accept").includes("text/html")) {
-        try {
-          return await responseFromFetch;
-        } catch (error) {
-          return caches.match(request);
-        }
-      } else {
-        const responseFromCache = await caches.match(request);
-        return responseFromCache || responseFromFetch;
-      }
-    })()
+});
+
+self.addEventListener('install', async (event) => {
+  event.waitUntil(
+    caches.open(CACHE)
+    .then((cache) => cache.add(offlineFallbackPage))
   );
+});
+
+if (workbox.navigationPreload.isSupported()) {
+  workbox.navigationPreload.enable();
+}
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        const preloadResp = await event.preloadResponse;
+
+        if (preloadResp) {
+          return preloadResp;
+        }
+
+        const networkResp = await fetch(event.request);
+        return networkResp;
+      } catch (error) {
+
+        const cache = await caches.open(CACHE);
+        const cachedResp = await cache.match(offlineFallbackPage);
+        return cachedResp;
+      }
+    })());
+  }
 });

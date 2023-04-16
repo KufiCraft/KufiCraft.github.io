@@ -1,22 +1,69 @@
 {
-    "name": "KufiCraft - الكوفي المربع",
-    "short_name": "KufiCraft",
-    "icons": [
-        {
-            "src": "/icons/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
+  "name": "KufiCraft - الكوفي المربع",
+  "short_name": "KufiCraft",
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
         },
-        {
-            "src": "/icons/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+        },
+    {
+      "src": "/icons/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+        },
+    {
+      "src": "/icons/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
         }
     ],
-    "theme_color": "#3498db",
-    "background_color": "#ffffff",
-    "scope": "/",
-    "start_url": "https://KufiCraft.github.io/index.html",
-    "display": "standalone",
-    "description": "أطلق العنان لإبداعك وصمم أجمل لوحات الكوفي المربع باستخدام تطبيق الويب KufiCraft مع العديد من الأدوات دون الحاجة للتثبيت. ابدأ الآن!"
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "ar",
+  "dir": "rtl",
+  "shortcuts": [{
+    "name": "استكمال العمل",
+    "url": "/#restore"
+    }],
+  "categories": ["drawing", "paint", "arabic"],
+  "prefer_related_applications": false,
+  "description": "أطلق العنان لإبداعك وصمم أجمل لوحات الكوفي المربع باستخدام تطبيق الويب KufiCraft مع العديد من الأدوات دون الحاجة للتثبيت. ابدأ الآن!",
+  "screenshots": [
+    {
+      "src": "/screenshots/KufiCraft 0.jpeg",
+      "sizes": "720x1520",
+      "type": "image/jpeg",
+      "platform": "narrow"
+      },
+    {
+      "src": "/screenshots/KufiCraft 1.jpeg",
+      "sizes": "720x1520",
+      "type": "image/jpeg",
+      "platform": "narrow"
+      },
+    {
+      "src": "/screenshots/KufiCraft 2.jpeg",
+      "sizes": "720x1520",
+      "type": "image/jpeg",
+      "platform": "narrow"
+      },
+    {
+      "src": "/screenshots/KufiCraft 3.jpeg",
+      "sizes": "720x1520",
+      "type": "image/jpeg",
+      "platform": "narrow"
+      }
+    ]
 }
