@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scaleable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
@@ -170,9 +170,10 @@
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register(
-        'sw.js',
-        '/'
-      )
+        'sw.js', {
+          scope: '/'
+        }
+      ).catch(err => console.log('could not register service worker'))
     }
     addEventListener("beforeinstallprompt", e => {
       window.installer = e
