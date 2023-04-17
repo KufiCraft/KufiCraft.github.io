@@ -3,8 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="qIIhnB6kcpAUghzotMcY4VehdETWtUnaMlAXWx6dUmg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
@@ -22,9 +21,7 @@
   <meta og:description="أطلق العنان لإبداعك وصمم أجمل لوحات الكوفي المربع باستخدام تطبيق الويب KufiCraft مع العديد من الأدوات دون الحاجة للتثبيت. ابدأ الآن!">
   <title>KufiCraft</title>
 </head>
-
 <body>
-
   <div id="container">
     <header id="header">
       <div>
@@ -41,7 +38,6 @@
     <svg id="kufi" xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
     </svg>
   </div>
-
   <form class="form" id="create" onsubmit="return false">
     <h1><img src="logo.svg" alt="KufiCraft logo" width="200px"></h1>
     <h2>ضع عنوانًا لـ لوحتك!</h2>
@@ -66,7 +62,6 @@
       </div>
     </div>
   </form>
-
   <div id="popup">
     <form class="form" onsubmit="return false">
       <h1>نوع التصدير</h1>
@@ -86,7 +81,6 @@
       <button type="submit" onclick="board.export(this.form.querySelector('[name=export]:checked').id) && board.popup(false)">تصدير</button>
     </form>
   </div>
-
   <nav id="toolbar">
     <label class="item" onclick="board.setTool('pen')" title="القلم (p)">
       <input class="button" type="radio" name="tool" id="pen" checked>
@@ -166,7 +160,6 @@
       <input class="color" type="color" onchange="board.setColor(this.value)">
     </label>
   </nav>
-
   <script src="kufi.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
@@ -181,5 +174,4 @@
     });
   </script>
 </body>
-
 </html>
