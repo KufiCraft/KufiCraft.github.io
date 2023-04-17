@@ -66,11 +66,17 @@
       "type": "image/jpeg",
       "platform": "narrow"
       },
-    {
-      "src": "/screenshots/KufiCraft 3.jpeg",
-      "sizes": "720x1520",
-      "type": "image/jpeg",
-      "platform": "narrow"
+      {
+        "src": "/screenshots/KufiCraft 3.jpeg",
+        "sizes": "720x1520",
+        "type": "image/jpeg",
+        "platform": "narrow"
+      },
+      {
+        "src": "/screenshots/KufiCraft 4.jpeg",
+        "sizes": "720x1520",
+        "type": "image/jpeg",
+        "platform": "narrow"
       }
     ]
 }
