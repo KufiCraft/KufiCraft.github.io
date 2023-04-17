@@ -167,7 +167,7 @@
         'sw.js', {
           scope: '/'
         }
-      ).catch(err => console.log('could not register service worker'))
+      ).then(registration => navigator.onLine && registration.update()).catch(err => console.log('could not register service worker'))
     }
     addEventListener("beforeinstallprompt", e => {
       window.installer = e
