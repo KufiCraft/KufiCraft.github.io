@@ -42,8 +42,12 @@
   "shortcuts": [{
     "name": "استكمال العمل",
     "url": "/#restore",
-    "icon": "/icons/icon_x96.png"
-    }],
+    "icons": [{
+      "src": "/icons/icon_x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }]
+  }],
   "categories": ["drawing", "paint", "arabic"],
   "prefer_related_applications": false,
   "description": "أطلق العنان لإبداعك وصمم أجمل لوحات الكوفي المربع باستخدام تطبيق الويب KufiCraft مع العديد من الأدوات دون الحاجة للتثبيت. ابدأ الآن!",
