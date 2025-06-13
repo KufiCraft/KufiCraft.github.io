@@ -1,0 +1,138 @@
+/*
+ * Copyright 2023 Abd Sattout. All rights reserved.
+*/
+
+#kufi {
+    --size: 3200px;
+    aspect-ratio: 1/1;
+    /* background: 0 0/1% 1% #fff; */
+    overflow: visible;
+    width: var(--size);
+    height: var(--size);
+}
+
+/* Regular circular grid with empty center and two types of lines */
+#kufi.circular.mono {
+    background-image:
+        /* Narrow lines - simulating border */
+        radial-gradient(circle at center,
+            transparent 0%, transparent 120px,
+            #eee 120px, #eee 122px,
+            /* Inner border of narrow line */
+            transparent 122px, transparent 158px,
+            /* Transparent inner of narrow line */
+            #eee 158px, #eee 160px,
+            /* Outer border of narrow line */
+            transparent 160px, transparent 200px,
+            #eee 200px, #eee 202px,
+            transparent 202px, transparent 238px,
+            #eee 238px, #eee 240px,
+            transparent 240px, transparent 280px,
+            #eee 280px, #eee 282px,
+            transparent 282px, transparent 318px,
+            #eee 318px, #eee 320px,
+            transparent 320px, transparent 360px,
+            #eee 360px, #eee 362px,
+            transparent 362px, transparent 398px,
+            #eee 398px, #eee 400px,
+            transparent 400px),
+        /* Wide lines - simulating border */
+        radial-gradient(circle at center,
+            transparent 0%, transparent 120px,
+            transparent 120px, transparent 160px,
+            #eee 160px, #eee 162px,
+            /* Inner border of wide line */
+            transparent 162px, transparent 198px,
+            /* Transparent inner of wide line */
+            #eee 198px, #eee 200px,
+            /* Outer border of wide line */
+            transparent 200px, transparent 240px,
+            #eee 240px, #eee 242px,
+            transparent 242px, transparent 278px,
+            #eee 278px, #eee 280px,
+            transparent 280px, transparent 320px,
+            #eee 320px, #eee 322px,
+            transparent 322px, transparent 358px,
+            #eee 358px, #eee 360px,
+            transparent 360px, transparent 400px,
+            #eee 400px, #eee 402px,
+            transparent 402px, transparent 438px,
+            #eee 438px, #eee 440px,
+            transparent 440px);
+}
+
+#kufi.circular:not(.mono) {
+    background:
+        /* remove this circle if needed */
+        radial-gradient(circle 70px at center, white 128px, transparent 70px),
+        linear-gradient(97.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(100deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(107.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(110deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(117.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(120deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(127.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(130deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(137.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(140deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(147.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(150deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(157.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(160deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(167.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(170deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(177.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(180deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(187.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(190deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(197.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(200deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(207.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(210deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(217.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(220deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(227.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(230deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(237.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(240deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(247.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(250deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(257.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(260deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(267.5deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        linear-gradient(270deg, transparent 50%, #eee calc(50% - 2px), transparent calc(50% + 2px)),
+        repeating-radial-gradient(circle, transparent 0, transparent 31px, #eee 31px, #eee 32px),
+        repeating-radial-gradient(circle, transparent -7px, transparent 24px, #EEE 24px, #eee 25px)
+}
+
+/* Add angular lines for better orientation */
+#kufi.circular:not(.mono)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(0deg, transparent 49.5%, #eee 49.5%, #eee 50.5%, transparent 50.5%),
+        linear-gradient(90deg, transparent 49.5%, #eee 49.5%, #eee 50.5%, transparent 50.5%),
+        linear-gradient(45deg, transparent 49.5%, #eee 49.5%, #eee 50.5%, transparent 50.5%),
+        linear-gradient(-45deg, transparent 49.5%, #eee 49.5%, #eee 50.5%, transparent 50.5%);
+    pointer-events: none;
+}
+
+/* Add angular lines for mono mode */
+#kufi.circular.mono::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(0deg, transparent 49.5%, #eee 49.5%, #eee 50.5%, transparent 50.5%),
+        linear-gradient(90deg, transparent 49.5%, #eee 49.5%, #eee 50.5%, transparent 50.5%),
+        linear-gradient(45deg, transparent 49.5%, #eee 49.5%, #eee 50.5%, transparent 50.5%),
+        linear-gradient(-45deg, transparent 49.5%, #eee 49.5%, #eee 50.5%, transparent 50.5%);
+    pointer-events: none;
+}

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="qIIhnB6kcpAUghzotMcY4VehdETWtUnaMlAXWx6dUmg" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="circle.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -53,6 +54,16 @@
     <div class="row">
       <input type="checkbox" name="mono" id="mono" />
       <label for="mono">شبكة متساوية 1:1</label>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input type="radio" name="gridType" id="square" value="square" checked>
+        <label for="square">شبكة مربعة</label>
+      </div>
+      <div class="col">
+        <input type="radio" name="gridType" id="circular" value="circular">
+        <label for="circular">شبكة دائرية</label>
+      </div>
     </div>
     <div style="display:flex;gap:10px;align-items:center;flex-direction: row-reverse">
       <button type="submit" onclick="create(false)" disabled>إنشاء</button>
@@ -161,6 +172,7 @@
       <input class="color" type="color" onchange="board.setColor(this.value)">
     </label>
   </nav>
+  <script src="circularGridDrawing.js"></script>
   <script src="kufi.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
