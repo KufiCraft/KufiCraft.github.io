@@ -656,32 +656,47 @@ class Kufi {
         break
       }
       case 'png': {
-        let $a = document.createElement('a')
-        $a.href = await convertSVGtoImg()
-        $a.setAttribute('download', this.name.replace(/\s/g, '-') + '.png');
-        if (document.createEvent) {
-          let event = document.createEvent('MouseEvents');
-          event.initEvent('click', true, true);
-          $a.dispatchEvent(event);
-        } else {
-          $a.click();
+        try {
+          const blob = await (await fetch(await convertSVGtoImg())).blob();
+          const fileHandle = await window.showSaveFilePicker({
+            suggestedName: this.name.replace(/\s/g, '-') + '.png',
+            types: [{
+              description: 'PNG Image',
+              accept: {'image/png': ['.png']},
+            }],
+          });
+          const writable = await fileHandle.createWritable();
+          await writable.write(blob);
+          await writable.close();
+          this.info(-1);
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            this.info('حدث خطأ أثناء حفظ الملف');
+          }
         }
-        this.info(-1)
-        break
+        break;
       }
       default: {
-        let $a = document.createElement('a');
-        let bbox = this.svg.getBBox()
-        $a.setAttribute('href', 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" width="${bbox.width}" height="${bbox.height}" viewBox="${bbox.x},${bbox.y},${bbox.width},${bbox.height}">${this.svg.innerHTML}</svg>`));
-        $a.setAttribute('download', this.name.replace(/\s/g, '-') + '.svg');
-        if (document.createEvent) {
-          let event = document.createEvent('MouseEvents');
-          event.initEvent('click', true, true);
-          $a.dispatchEvent(event);
-        } else {
-          $a.click();
+        try {
+          const bbox = this.svg.getBBox();
+          const svgContent = `<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" width="${bbox.width}" height="${bbox.height}" viewBox="${bbox.x},${bbox.y},${bbox.width},${bbox.height}">${this.svg.innerHTML}</svg>`;
+          const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+          const fileHandle = await window.showSaveFilePicker({
+            suggestedName: this.name.replace(/\s/g, '-') + '.svg',
+            types: [{
+              description: 'SVG Image',
+              accept: {'image/svg+xml': ['.svg']},
+            }],
+          });
+          const writable = await fileHandle.createWritable();
+          await writable.write(blob);
+          await writable.close();
+          this.info(-1);
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            this.info('حدث خطأ أثناء حفظ الملف');
+          }
         }
-        this.info(-1)
       }
     }
     return true

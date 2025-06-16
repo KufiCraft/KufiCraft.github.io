@@ -16,7 +16,7 @@
 .form .row,
 .form button,
 body {
-    overflow: auto
+    overflow: hidden
 }
 
 #container,
@@ -48,18 +48,13 @@ hr {
 
 body {
     overscroll-behavior: contain;
-    touch-action: pan-x pan-y;
-    overflow: auto
+    touch-action: pan-x pan-y
 }
 
 #container {
     inset: 0;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: auto
+    height: 100%
 }
 
 #container.hand {
@@ -73,7 +68,7 @@ body {
 #kufi {
     --size: 3200px;
     aspect-ratio: 1/1;
-    /* background: 0 0/1% 1% #fff; */
+    background: 0 0/1% 1% #fff;
     overflow: visible;
     width: var(--size);
     height: var(--size)
